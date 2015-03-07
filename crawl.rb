@@ -86,7 +86,7 @@ def stockCrawl(start_code)
         book = Spreadsheet.open('Shokencode.xls','rb')
         sheet=book.worksheet('Sheet1')
         sheet.each do |row|
-            puts "#{row[0]} #{row[1]}"
+            
             # 証券コード
             code=row[1].to_i
             
@@ -108,6 +108,8 @@ def stockCrawl(start_code)
             f = open(outfilename,"w")
             
             start_code = code
+            
+            puts "Downloading: " + "#{row[0]} #{row[1]}"
         
             # 開始年月日
             start_date='00000000'
